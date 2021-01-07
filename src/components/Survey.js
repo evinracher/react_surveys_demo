@@ -1,5 +1,6 @@
 import * as typeformEmbed from '@typeform/embed'
-import { useEffect, useRef, useState } from 'react'
+import { createClient } from '@typeform/api-client'
+import { useEffect } from 'react'
 import { TOKEN, CLIENT_ID, CLIENT_SECRET } from '../utils/constants'
 function Survey() {
   const fetchdata = async () => {
@@ -7,10 +8,22 @@ function Survey() {
       const res = await fetch(
         'https://api.typeform.com/forms/EZBeFIJV/responses',
         {
-          'mode': 'no-cors',
-          'Authorization': 'bearer ' + TOKEN,
+          // 'mode': 'no-cors',
+          'authorization': 'bearer ' + TOKEN,
         })
-      console.log('bearer ' + TOKEN)
+      console.log('Bearer ' + TOKEN)
+      console.log(res)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  
+  const typeformAPI = createClient({ token: TOKEN })
+  const fetchdata2 = async () => {
+    try {
+      const res =  await typeformAPI
+      .forms
+      .list()
       console.log(res)
     } catch (error) {
       console.error(error)
@@ -28,7 +41,8 @@ function Survey() {
   )
 
   useEffect(() => {
-    fetchdata()
+    // fetchdata()
+    fetchdata2()
     reference.open()
   })
 
