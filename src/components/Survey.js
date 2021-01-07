@@ -7,7 +7,7 @@ function Survey() {
       const res = await fetch(
         'https://api.typeform.com/forms/EZBeFIJV/responses',
         {
-          // 'mode': 'no-cors',
+          'mode': 'no-cors',
           'Authorization': 'bearer ' + TOKEN,
         })
       console.log('bearer ' + TOKEN)
