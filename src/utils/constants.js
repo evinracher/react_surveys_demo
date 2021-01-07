@@ -1,0 +1,3 @@
+export const CLIENT_ID = 'F1QW7FZvEmApTD4t6K4mNKa1tDPTQATPzy5Bbw8v2r1n'
+export const CLIENT_SECRET = '4wggj3qWZKCFUU8xKxMDPQNSaQ2sdmSW94EgVXvuFgPP'
+export const TOKEN = 'J6HBvbDGC8V3MG7rmRVxhJK8Z5UmpiJK9hiDv3djbLF7'
