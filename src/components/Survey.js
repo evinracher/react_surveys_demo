@@ -3,13 +3,18 @@ import { useEffect, useRef, useState } from 'react'
 import { TOKEN, CLIENT_ID, CLIENT_SECRET } from '../utils/constants'
 function Survey() {
   const fetchdata = async () => {
-    const res = await fetch(
-      'https://api.typeform.com/forms/EZBeFIJV/responses',
-      {
-        'authorization': 'bearer ' + TOKEN,
-      })
-    console.log('bearer ' + TOKEN)
-    console.log(res)
+    try {
+      const res = await fetch(
+        'https://api.typeform.com/forms/EZBeFIJV/responses',
+        {
+          'mode': 'no-cors',
+          'authorization': 'bearer ' + TOKEN,
+        })
+      console.log('bearer ' + TOKEN)
+      console.log(res)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const reference = typeformEmbed.makePopup(
